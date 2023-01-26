@@ -38,7 +38,8 @@ let heroesTemplate = heroes
 
 function attackBoss(){
   let totalAttack = 0
-   heroes.forEach(hero => totalAttack += hero.damage * ((hero.lvl / 100) + 1));
+  heroes.forEach(h =>{if(h.health == 0){ h.damage = 0 }} )
+  heroes.forEach(hero => totalAttack += hero.damage * ((hero.lvl / 100) + 1));
   bossTemplate.health -= totalAttack.toFixed(0)
   console.log(bossTemplate);
 heroesAttacked()
@@ -49,6 +50,7 @@ drawBoss()
 function bossRevive(){
   if (boss.health <= 0) {
     boss.level++
+    heroes.forEach(h => h.lvl++ )
     boss.maxHealth = boss.maxHealth + (boss.level + 10)
     boss.health = boss.maxHealth
 
@@ -58,35 +60,33 @@ function bossRevive(){
 function heroesAttacked(){
 let totalAttack = 0
 heroesTemplate.forEach (hero => hero.health -= boss.damage)
+  heroes.forEach(h => {if(h.health < 0){h.health = 0}})
   console.log(heroesTemplate);
   drawHeroes()
 }
 
 
 
+
+
 // SECTION Draw  
 
 function drawHeroes(){
-let heroElm = document.getElementById('heroes')
-let template = ``
+  let rabbitElem = document.getElementById('rabbit')
+rabbitElem.innerHTML = `<h2>${heroes[0].name}</h2>
+<h3>HEALTH: ${heroes[0].health}</h3>
+<h3>GOLD:</h3>
+<h3>LVL: ${heroes[0].lvl}</h3>`
 
-heroes.forEach(h => {
-  template += `
-  <div class="col-5">
-          <div class="card">
-            <div class="card-body text-center">
-              <img src="${h.img}" class="img-fluid">
-              <h2>${h.name}</h2>
-              <h3>HEALTH: ${h.health}</h3>
-              <h3>GOLD:</h3>
-              <h3>LVL: ${h.lvl}</h3>
-            </div>
-          </div>
-        </div>`
-});
-// @ts-ignore
-heroElm.innerHTML = template
+  let elfElem = document.getElementById('elf')
+elfElem.innerHTML = `<h2>${heroes[1].name}</h2>
+<h3>HEALTH: ${heroes[1].health}</h3>
+<h3>GOLD:</h3>
+<h3>LVL: ${heroes[1].lvl}</h3>`
+
+  
 }
+
 
 function drawBoss(){
   let bossElem = document.getElementById('boss')

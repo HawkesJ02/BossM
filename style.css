@@ -1,0 +1,22 @@
+.hero-height{
+  max-height: 50vh;
+}
+
+.bg-bunny{
+  min-height: 20vh;
+  background-image:  url(https://images.unsplash.com/photo-1570989086575-503363bb091b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80) ;
+  max-width: 100%;
+  height: auto;
+}
+.hero-img{
+
+}
+
+.row{
+  max-height: auto;
+}
+
+/* .img-contained{
+  max-height: 20vh;
+  max-width: 20vh;
+} */

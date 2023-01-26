@@ -22,20 +22,45 @@
 <body>
   <header>
     <div class="container-fluid p-3">
-      <div class="row" id='heroes'>
+      <div class="row " id='heroes'>
+        <div class="col-3">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <img class="img-fluid hero-height"
+                src="https://images.unsplash.com/photo-1570989086575-503363bb091b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80">
+              <div id="rabbit"></div>
+              <!-- <h2>${h.name}</h2>
+              <h3>HEALTH: ${h.health}</h3>
+              <h3>GOLD:</h3>
+              <h3>LVL: ${h.lvl}</h3> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <img
+                src="https://images.unsplash.com/photo-1604868379657-dd7c35f6c4cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                class="img-fluid hero-height">
+              <div id="elf">
+
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </header>
   <main>
     <div class="container">
-      <div class="row">
-        <div class="col-12" id="boss">
-          <div class="card">
+      <div class="row d-flex justify-content-center">
+        <div class="col-4" id="boss">
+          <div class="card h-100">
+            <img
+              src="https://images.unsplash.com/photo-1551899714-406fb07fb6ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2971&q=80"
+              alt="" class="img-contained">
             <div class="card-body text-center">
               <h1 class="lvl">name lvl 1</h1>
-              <img
-                src="https://images.unsplash.com/photo-1551899714-406fb07fb6ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2971&q=80"
-                alt="" class="img-fluid">
 
               <h2 class="heath">Health 100/100</h2>
             </div>

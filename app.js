@@ -32,6 +32,7 @@ const boss = {
 
 let bossTemplate = boss
 let heroesTemplate = heroes
+let gold =0
 
 // SECTION Functions
 
@@ -50,10 +51,11 @@ drawBoss()
 function bossRevive(){
   if (boss.health <= 0) {
     boss.level++
-    heroes.forEach(h => h.lvl++ )
+    gold++
+    heroes.forEach(h => {h.lvl++; h.damage +=h.lvl;} )
     boss.maxHealth = boss.maxHealth + (boss.level + 10)
     boss.health = boss.maxHealth
-
+    drawGold()
   }
 }
 
@@ -65,11 +67,24 @@ heroesTemplate.forEach (hero => hero.health -= boss.damage)
   drawHeroes()
 }
 
-
+function healthPotion(){
+if(gold > 0){
+  gold--
+  heroes.forEach(h => h.health += 25 )
+}
+drawGold()
+drawHeroes()
+}
 
 
 
 // SECTION Draw  
+
+function drawGold(){
+  let goldElem = document.getElementById("Gold")
+  goldElem.innerText = `Gold: ${gold}`
+}
+
 
 function drawHeroes(){
   let rabbitElem = document.getElementById('rabbit')
@@ -96,5 +111,6 @@ function drawBoss(){
   bossh2.innerText = `${boss.health}/${boss.maxHealth}`
 }
 setInterval(attackBoss, 1000)
+drawGold()
 drawHeroes()
 drawBoss()
